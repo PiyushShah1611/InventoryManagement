@@ -1,0 +1,104 @@
+﻿@model IEnumerable<InventoryManagement.Models.Employee>
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Employee List</h2>
+
+<p>
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Create New", "Create")
+    }
+
+</p>
+<table class="table">
+    <tr>
+
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.RegisterId)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Department.DepartmentName)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.UpdateDateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Firstname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.RegisterId)
+        </td>*@
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Department.DepartmentName)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>*@
+        @*<td>
+            @Html.DisplayFor(modelItem => item.UpdateDateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedBy)
+        </td>*@
+        <td>
+            @{
+                string check = User.Identity.GetUserName();
+                if (User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Edit ", "Edit", new { id = item.EmployeeID }) 
+                    @Html.ActionLink("Details ", "Details", new { id = item.EmployeeID }) 
+                    @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeID }) 
+                }
+                else if (check == item.Email)
+                {
+                    @Html.ActionLink("Edit ", "Edit", new { id = item.EmployeeID }) 
+
+                    @Html.ActionLink("Details ", "Details", new { id = item.EmployeeID })
+                }
+            }
+
+        </td>
+    </tr>
+    }
+
+</table>

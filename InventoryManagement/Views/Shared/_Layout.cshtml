@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Inventory Management System</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href="~/Content/css/component.css" rel="stylesheet" />
+    <link href="~/Content/css/demo.css" rel="stylesheet" />
+    <link href="~/Content/css/normalize.css" rel="stylesheet" />
+    <script src="~/Content/js/modernizr.custom.js"></script>
+    <script src="https://kit.fontawesome.com/44c54db911.js"></script>
+
+</head>
+<body>
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Inventory Management System", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+
+
+
+
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year</p>
+            </footer>
+        </div>*@
+
+
+
+    <div class="container">
+        <ul id="gn-menu" class="gn-menu-main">
+            <li class="gn-trigger">
+                <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+                <nav class="gn-menu-wrapper">
+                    <div class="gn-scroller">
+                        <ul class="gn-menu">
+
+                            <li>
+                                <a href="@Url.Action("Index", "Employees")" style="margin-left: 10px;border-left-width: 1px;padding-left: 15px;">
+                                    <span class="glyphicon glyphicon-user" style="padding-right: 16px;"></span>Employee
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Departments")" style="margin-left: 10px;border-left-width: 1px;padding-left: 15px;">
+                                    <span class="glyphicon glyphicon-modal-window" style="padding-right: 16px;"></span>Department
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="@Url.Action("Index", "Categories")" style="margin-left: 10px;border-left-width: 1px;padding-left: 15px;">
+                                    <span class="fa fa-list-alt" style="padding-right: 16px;"></span>Category
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Suppliers")" style="margin-left: 10px;border-left-width: 1px;padding-left: 15px;">
+                                    <span class="fa fa-address-book" style="padding-right: 16px;"></span>Supplier
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Items")" style="margin-left: 10px;border-left-width: 1px;padding-left: 15px;">
+                                    <span class="fa fa-info-circle" style="padding-right: 16px;"></span>Item
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Purchases")" style="margin-left: 10px;border-left-width: 1px;padding-left: 15px;">
+                                    <span class="glyphicon glyphicon-tag" style="padding-right: 16px;"></span>Purchase
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Requests")" style="margin-left: 10px;border-left-width: 1px;padding-left: 15px;">
+                                    <span class="glyphicon glyphicon-edit" style="padding-right: 16px;"></span>Request
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Allotments")" style="margin-left: 10px;border-left-width: 1px;padding-left: 15px;">
+                                    <span class="glyphicon glyphicon-ok" style="padding-right: 16px;"></span>Allotment
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div><!-- /gn-scroller -->
+                </nav>
+            </li>
+            
+            <li>@Html.ActionLink("Inventory Management System", "Index", "Home")</li>
+           
+            @Html.Partial("_LoginPartial")
+        </ul>
+        <div class="container body-content">
+            @RenderBody()
+
+        </div><!-- /container -->
+    </div>
+
+    <script src="~/Content/js/classie.js"></script>
+    <script src="~/Content/js/gnmenu.js"></script>
+    <script>
+        new gnMenu(document.getElementById('gn-menu'));
+    </script>
+
+
+
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

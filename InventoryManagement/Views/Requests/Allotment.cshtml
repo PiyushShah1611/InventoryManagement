@@ -1,0 +1,14 @@
+﻿@model InventoryManagement.Models.Request
+@{
+    ViewBag.Title = "Allotment";
+}
+
+<h2>Allotment</h2>
+@using (Html.BeginForm())
+{
+
+    <h4> Allotment Confirm</h4>
+    @Html.HiddenFor(model => model.RequestID)
+    <input type="submit" value="Confirm" onclick="location.href='@Url.Action("Allotment", "Requests")'" />
+    <input type="button" value="Cancel" onclick="location.href='@Url.Action("Index", "Requests")'" />
+}
